@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Project 1</title>
+        <link rel="stylesheet" href="Project1.css">
+        <script src="modernizr.custom.05819.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>LOAN CALCULATOR</h1>
+        </header>
+        <nav>
+            <a href="index.html">HOME</a>&nbsp;
+            <a href="Mortgage.html">Mortgage Loans</a>&nbsp;
+            <a href="Auto.html">Automobile Loans</a>&nbsp;
+            <a href="Student.html">Student Loans</a>&nbsp;
+        </nav>
+        <main>
+            <h3>Mortgage Loans</h3>
+            <form>
+                <label for="PurchaseAmount">Purchase Amount</label>&nbsp;<input type="number" id="PurchaseAmount" placeholder="Purchase Amount"><br><br>
+                <label for="DownPayment$">Down Payment</label>&nbsp;<input type="number" id="DownPayment$" placeholder="Down Payment $"> "or" 
+                <label for="DownPayment%"></label>&nbsp;<input type="number" id="DownPayment%" placeholder="Down Payment %"><br><br>
+                <label for="Rate">Mortgage Rate</label>&nbsp;<input type="number" id="Rate" placeholder="Mortgage Rate"><br><br>
+                <label for="Months">Number of Months</label>&nbsp;<input type="number" id="Months" placeholder="Number of Months"><br><br>
+                <input type="submit" id="submit" value="SUBMIT">
+            </form>
+        </main>
+        <footer>
+            <h4>by TJ H Lopez de Leon</h4>
+            <h4><a href="websafety.html">Online Safety Tips</a></h4>
+        </footer>
+        <script>
+            function MortgageCalc() {
+                var PA = document.getElementById("PurchaseAmount");
+                var DP = document.getElementById("DownPayment$");
+                var DPP = document.getElementById("DownPayment%");
+                var R = document.getElementById("Rate");
+                var M = document.getElementById("Months");
+                var X = R.value/100/12;
+                var LoanAmount;
+                var Down;
+                //input validation for purchase amount
+                if(PA.value === "" || PA.value == null){
+                    window.alert("Please enter the purchase amount.");
+                } else if((DP.value === "" || DP.value == null) && (DPP.value === "" || DPP.value == null)){ //input validation for down payment
+                    window.alert("Please enter downpayment amount or percent.");
+                } else if(R.value === "" || R.value == null){ //input validation for mortgage rate
+                    window.alert("Please enter mortgage rate.");
+                } else if(M.value === "" || M.value == null){ //input validation for number of months
+                    window.alert("Please enter number of months.");
+                } /*else if((PA.value === "" || PA.value == null)&&(M.value === "" || M.value == null)&&(R.value === "" || R.value == null)&&((DP.value === "" || DP.value == null) && (DPP.value === "" || DPP.value == null))){
+                    windows.alert("please populate the fields.")
+                }*/ else if(DP.value === "" || DP.value == null){
+                    Down = PA.value * (DPP.value/100);
+                } else if (DPP.value === "" || DPP.value == null){
+                    Down = DP.value;
+                } 
+                LoanAmount = PA.value - Down;
+                var FixedMonthly = LoanAmount * X * (((1+X)**M.value)/(((1+X)**M.value)-1));
+                document.write("Your monthly mortgage will be $" + Math.round(FixedMonthly) + " for a $" + PA.value + 
+                " purchase with a down payment of $" + Down + " and an interest rate of "+ R.value +"% over "+ M.value +" months.");
+            }
+            document.getElementById("submit").addEventListener("click",MortgageCalc,false);
+        </script>
+    </body>
+</html>

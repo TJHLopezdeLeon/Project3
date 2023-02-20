@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Project 1</title>
+        <link rel="stylesheet" href="Project1.css">
+        <script src="modernizr.custom.05819.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>LOAN CALCULATOR</h1>
+        </header>
+        <nav>
+            <a href="index.html">HOME</a>&nbsp;
+            <a href="Mortgage.html">Mortgage Loans</a>&nbsp;
+            <a href="Auto.html">Automobile Loans</a>&nbsp;
+            <a href="Student.html">Student Loans</a>&nbsp;
+        </nav>
+        <main>
+            <h3>Tell us about you!</h3>
+            <form id="form">
+                <label for="Name">Name</label>&nbsp;<input type="text" id="Name" placeholder="Name"><br><br>
+                <label for="EmailAddress">Email Address</label>&nbsp;<input type="email" id="EmailAddress" placeholder="Email@Address.com"><br><br>
+                <label for="PhoneNumber">Phone Number</label>&nbsp;<input type="tel" id="PhoneNumber" placeholder="###-###-####"><br><br>
+                <label for="CreditScore">Credit Score</label>&nbsp;<input type="number" id="CreditScore" placeholder="Credit Score"><br><br>
+                <p>First Time Home Buyer<br>
+                <label for="FirstTimeHomeBuyer">Yes</label><input name="FirstTimeHomeBuyer" type="radio" id="FirstTimeHomeBuyerYes" value="Yes">&nbsp;
+                <label for="FirstTimeHomeBuyer">No</label><input name="FirstTimeHomeBuyer" type="radio" id="FirstTimeHomeBuyerNo" value="No"><br><br>
+                </p>
+                <p>Loan Purpose<br>
+                <label for="LoanPurpose">Purchase</label>&nbsp;<input name="LoanPurpose" type="checkbox" id="LoanPurposePurchase">&nbsp;
+                <label for="LoanPurpose">Cash Out</label>&nbsp;<input name="LoanPurpose" type="checkbox" id="LoanPurposeCashOut">&nbsp;
+                <label for="LoanPurpose">Refinance Rate</label>&nbsp;<input name="LoanPurpose" type="checkbox" id="LoanPurposeRefinance"><br><br>
+                </p>
+                <input type="submit" id="submit" value="SUBMIT">
+            </form>
+        </main>
+        <footer>
+            <h4>by TJ H Lopez de Leon</h4>
+            <h4><a href="websafety.html">Online Safety Tips</a></h4>
+        </footer>
+        <script>
+            var Name = document.getElementById("Name");
+            var EmailAddress = document.getElementById("EmailAddress");
+            var PhoneNumber = document.getElementById("PhoneNumber");
+            var CreditScore = document.getElementById("CreditScore");
+            var Radio = document.getElementsByName("FirstTimeHomeBuyer");
+            var Purchase = document.getElementById("LoanPurposePurchase");
+            var CashOut = document.getElementById("LoanPurposeCashOut");
+            var Refinance = document.getElementById("LoanPurposeRefinance");
+            var Form = document.getElementById("Form");
+            var OutputMessage = "Thank you for allowing us to assist you. Choose from one of the following loan offerings.";
+            var Link1Message = "Mortgage Loans"
+            var Link1 = Link1Message.link("Mortgage.html");
+            var Link2Message = "Automobile Loans"
+            var Link2 = Link2Message.link("Auto.html");
+            var Link3Message = "Student Loans"
+            var Link3 = Link3Message.link("Student.html");
+            //update input validation
+            function validateFields(){
+                //validation check for name input
+                if(Name.value === "" || Name.value == null){window.alert("Please enter your name.")}
+                //validation check for email address
+                else if(EmailAddress.value === "" || EmailAddress.value == null){window.alert("Please enter your email address.")}
+                //validation check for phone number
+                else if(PhoneNumber.value === "" || PhoneNumber.value == null){window.alert("Please enter your phone number.")}
+                //validation check for credit score
+                else if(CreditScore.value === "" || CreditScore.value == null){window.alert("Please enter your credit score.")}
+                //show thank you message and the loan options on successful input
+                else {
+                    document.write(OutputMessage + "<br><br>" + "<br>" + Link1 + "<br>" + Link2 + "<br>" + Link3);
+                }
+            }
+            //function to validate radio button
+            function validateRadio(){
+                var FirstTime;
+                var formValid = false;
+                for (i=0; i<Radio.length; i++){
+                    if(Radio[i].type == "radio" && Radio[i].checked){
+                        FirstTime = Radio[i].value;
+                        formValid = true;
+                    } else {
+                        window.alert("Please tell us if this is your first mortgage.");
+                    }
+                }
+                return formValid;
+            }
+            function validateForm(){
+                validateRadio();
+                validateFields();
+            }
+            document.getElementById("submit").addEventListener("click",validateForm,false);
+        </script>
+    </body>
+</html>

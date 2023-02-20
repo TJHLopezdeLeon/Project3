@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Project 1</title>
+        <link rel="stylesheet" href="Project1.css">
+        <script src="modernizr.custom.05819.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>LOAN CALCULATOR</h1>
+        </header>
+        <nav>
+            <a href="index.html">HOME</a>&nbsp;
+            <a href="Mortgage.html">Mortgage Loans</a>&nbsp;
+            <a href="Auto.html">Automobile Loans</a>&nbsp;
+            <a href="Student.html">Student Loans</a>&nbsp;
+        </nav>
+        <main>
+            <h3>Web Safety</h3>
+            <p>
+                Web safety, also known as online safety or internet safety, refers to the safe and responsible use of the internet and technology. It involves being aware of potential risks and taking steps to protect yourself and others from online threats, such as cyberbullying, identity theft, and exposure to inappropriate content.
+
+                Web safety is important because the internet has become an integral part of our daily lives, and we rely on it for communication, information, entertainment, and commerce. However, the internet can also be a dangerous place, especially for children and vulnerable populations, and it is important to take steps to ensure that our online experiences are safe and secure. <br><br>
+
+                Here are three sources that provide more information about web safety and why it is important: <br><br>
+
+                The National Cyber Security Alliance (NCSA) is a non-profit organization that provides resources and support for individuals and organizations to stay safe online. Their website offers tips and advice for internet safety, as well as educational materials for parents, educators, and businesses. <a href="https://staysafeonline.org/stay-safe-online/">https://staysafeonline.org/stay-safe-online/</a> <br><br>
+
+                The Federal Trade Commission (FTC) is a government agency that enforces consumer protection laws, including those related to online safety and privacy. Their website offers information and guidance for consumers on how to protect themselves from online scams, identity theft, and other threats. <a href="https://www.consumer.ftc.gov/topics/online-security">https://www.consumer.ftc.gov/topics/online-security</a> <br><br>
+
+                The Childnet International is a non-profit organization that works to promote web safety and digital citizenship for children and young people. Their website offers resources and advice for parents, educators, and children on how to stay safe online, as well as information on emerging trends and risks in the digital world. <a href="https://www.childnet.com/">https://www.childnet.com/</a> <br><br>
+
+            </p>
+            <!--Create table-->
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>AppName</td>
+                    <td id="appName"></td>
+                </tr>
+                <tr>
+                    <td>AppVersion</td>
+                    <td id="appVersion"></td>
+                </tr>
+                <tr>
+                    <td>Geolocation</td>
+                    <td id="geolocation"></td>
+                </tr>
+                <tr>
+                    <td>Online</td>
+                    <td id="onLine"></td>
+                </tr>
+                <tr>
+                    <td>Platform</td>
+                    <td id="platform"></td>
+                </tr>
+                <tr>
+                    <td>Credentials</td>
+                    <td id="credentials"></td>
+                </tr>
+            </table>
+            <!--<p>Web Browser Name:</p>
+            <div id="appName"></div>
+            <p>Web Browser Version:</p>
+            <div id="appVersion"></div>
+            <p>Geolocation:</p>
+            <div id="geolocation"></div>
+            <p>Is Browser Online:</p>
+            <div id="onLine"></div>
+            <p>Platform:</p>
+            <div id="platform"></div>
+            <p>Credentials:</p>
+            <div id="credentials"></div>-->
+        </main>
+        <footer>
+            <h4>by TJ H Lopez de Leon</h4>
+            <h4><a href="websafety.html">Online Safety Tips</a></h4>
+        </footer>
+        <script>
+            document.getElementById("appName").innerHTML = navigator.appName
+            document.getElementById("appVersion").innerHTML = navigator.appVersion
+            document.getElementById("geolocation").innerHTML = navigator.geolocation
+            document.getElementById("onLine").innerHTML = navigator.onLine
+            document.getElementById("platform").innerHTML = navigator.platform
+            document.getElementById("credentials").innerHTML = navigator.credentials
+        </script>
+    </body>
+</html>
